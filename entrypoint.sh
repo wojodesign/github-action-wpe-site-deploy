@@ -29,7 +29,7 @@ fi
 WPE_DESTINATION="$WPE_ENV_NAME"@"$WPE_SSH_HOST":sites/"$WPE_ENV_NAME"/"$DIR_PATH"
 
 # Setup our SSH Connection & use keys
-mkdir "$SSH_PATH"
+[ ! -d "$SSH_PATH" ] && mkdir "$SSH_PATH"
 ssh-keyscan -t rsa "$WPE_SSH_HOST" >> "$KNOWN_HOSTS_PATH"
 
 #Copy Secret Keys to container
